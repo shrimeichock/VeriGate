@@ -9,7 +9,8 @@ access_control_matrix = {
         "money market instruments": [],
         "private consumer instruments": [],
         "derivatives trading": [],
-        "interest instruments": []
+        "interest instruments": [],
+        "privilege escalation": []
     },
     "premium_client": {
         "client info": ["view", "modify"],
@@ -21,7 +22,8 @@ access_control_matrix = {
         "money market instruments": [],
         "private consumer instruments": [],
         "derivatives trading": [],
-        "interest instruments": []
+        "interest instruments": [],
+        "privilege escalation": []
     },
     "financial_planner": {
         "client info": ["view"],
@@ -33,7 +35,8 @@ access_control_matrix = {
         "money market instruments": ["view"],
         "private consumer instruments": ["view"],
         "derivatives trading": [],
-        "interest instruments": []
+        "interest instruments": [],
+        "privilege escalation": []
     },
     "financial_advisor": {
         "client info": ["view"],
@@ -45,7 +48,8 @@ access_control_matrix = {
         "money market instruments": [],
         "private consumer instruments": ["view"],
         "derivatives trading": [],
-        "interest instruments": []
+        "interest instruments": [],
+        "privilege escalation": []
     },
     "investment_analyst": {
         "client info": ["view"],
@@ -57,7 +61,8 @@ access_control_matrix = {
         "money market instruments": ["view"],
         "private consumer instruments": ["view"],
         "derivatives trading": ["view"],
-        "interest instruments": ["view"]
+        "interest instruments": ["view"],
+        "privilege escalation": []
     },
      "tech_support": {
         "client info": ["view"],
@@ -69,7 +74,8 @@ access_control_matrix = {
         "money market instruments": [],
         "private consumer instruments": [],
         "derivatives trading": [],
-        "interest instruments": []
+        "interest instruments": [],
+        "privilege escalation": ["execute"]
     },
      "teller": {
         "client info": ["view"],
@@ -81,7 +87,8 @@ access_control_matrix = {
         "money market instruments": [],
         "private consumer instruments": [],
         "derivatives trading": [],
-        "interest instruments": []
+        "interest instruments": [],
+        "privilege escalation": []
     },
      "compliance_officer": {
         "client info": ["view"],
@@ -93,6 +100,7 @@ access_control_matrix = {
         "money market instruments": [],
         "private consumer instruments": [],
         "derivatives trading": [],
-        "interest instruments": []
+        "interest instruments": [],
+        "privilege escalation": []
     }
 }
