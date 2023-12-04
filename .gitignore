@@ -1,3 +1,6 @@
 __pycache__/access_control_policy.cpython-310.pyc
 __pycache__/main.cpython-310.pyc
 __pycache__/User.cpython-310.pyc
+__pycache__/PasswordPolicy.cpython-310.pyc
+__pycache__/PasswordManager.cpython-310.pyc
+__pycache__/UserInterface.cpython-310.pyc
