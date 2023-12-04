@@ -5,7 +5,7 @@ from datetime import time
 
 class TestAccessControlPolicy(unittest.TestCase):
 
-    def test_valid_roles(self): #TODO use the test inputs given in teh PDF
+    def test_valid_roles(self):
         """
         Test that valid roles are returning the correct dictionaries
         """
@@ -52,13 +52,6 @@ class TestAccessControlPolicy(unittest.TestCase):
         "privilege escalation": ["execute"]
         })
 
-    # def test_invalid_roles(self):
-    #     """s
-    #     Check that invalid roles return an error
-    #     """
-    #     user1 = User("invalid_role")
-    #     self.assertEqual(user1, None)
-
     def test_only_access_allowed(self):
         """
         Check that the user cannot access resources outside of what their permissions allow
@@ -66,9 +59,9 @@ class TestAccessControlPolicy(unittest.TestCase):
         user1 = User("client")
         user2 = User("teller")
         user3 = User("compliance_officer")
-        self.assertEqual(user1.get_permissions()["investment analyst info"], [])
-        self.assertEqual(user2.get_permissions()["investment portfolio"], ["view"])
-        self.assertEqual(user3.get_permissions()["investment portfolio"], ["view", "validate"])
+        self.assertEqual(user1.get_permissions()["investment analyst info"], []) # client has no permissions for investment analyst info
+        self.assertEqual(user2.get_permissions()["investment portfolio"], ["view"]) # teller can view investment portfolio but cannot validate
+        self.assertEqual(user3.get_permissions()["investment portfolio"], ["view", "validate"]) # compliance officer can view and validate
 
     def test_esclate_privileges(self):
         """
@@ -76,25 +69,12 @@ class TestAccessControlPolicy(unittest.TestCase):
         """
         user1 = User("client")
         user2 = User("tech_support")
-        self.assertEqual(user1.get_client_access("client"), None)
+        self.assertEqual(user1.get_client_access("client"), None) # client does not have access to other accounts
         self.assertEqual(user2.get_client_access("client"), "Tech support now has access to client's account")
-        self.assertEqual(user2.get_permissions(), access_control_matrix["client"])
+        self.assertEqual(user2.get_permissions(), access_control_matrix["client"]) # tech support permissions is now that of the client
         self.assertEqual(user2.get_client_access("premium_client"), "Tech support now has access to premium_client's account")
-        self.assertEqual(user2.get_permissions(), access_control_matrix["premium_client"])
-        self.assertEqual(user2.get_client_access("compliance_officer"), None)
-        self.assertEqual(user2.get_permissions(), access_control_matrix["premium_client"])
-
-    # def test_revoke_privileges(self):
-    #     """
-    #     Check that only tech_support can have their privileges revoked and that their access rights return to the expected value
-    #     """
-    #     user1 = User("investment_analyst")
-    #     user2 = User("tech_support")
-    #     self.assertEqual(user1.revoke_client_access(), None)
-    #     self.assertEqual(user2.get_client_access("client"), "Tech support now has access to client's account")
-    #     self.assertEqual(user2.get_permissions(), access_control_matrix["client"])
-    #     self.assertEqual(user2.revoke_client_access(), "Access to client account has been revoked")
-    #     self.assertEqual(user2.get_permissions(), access_control_matrix["tech_support"])
+        self.assertEqual(user2.get_permissions(), access_control_matrix["premium_client"]) # tech support permissions is now that of the premium client
+        self.assertEqual(user2.get_client_access("compliance_officer"), None) # tech support does not have access to compliance officer's account
 
     def test_teller_access(self):
         """

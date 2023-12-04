@@ -47,12 +47,4 @@ class User:
         if policy.access_control_matrix[self.role]["privilege escalation"] == ["execute"] and client_role in ["client", "premium_client"]:
             self.permissions = policy.access_control_matrix[client_role] 
             return "Tech support now has access to {}'s account".format(client_role)
-       
-    # def revoke_client_access(self) -> str:
-    #     """
-    #     If the user has revoke access rights, revert to their original permissions.
-    #     This operation is only accessible to users with the tech_support role.
-    #     """
-    #     if policy.access_control_matrix[self.role]["privilege escalation"] == ["execute"]:
-    #         self.permissions = policy.access_control_matrix[self.role] 
-    #         return "Access to client account has been revoked"
+     
