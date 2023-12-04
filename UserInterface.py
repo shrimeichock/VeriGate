@@ -5,7 +5,7 @@ from PasswordPolicy import PasswordPolicy
 
 class UserInterface:
     def __init__(self):
-        self.manager = PasswordManager()
+        self.manager = PasswordManager("passwd.txt")
         self.policy = PasswordPolicy()
 
     def welcome_prompt(self):

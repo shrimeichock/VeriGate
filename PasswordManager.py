@@ -2,8 +2,8 @@ import hashlib
 import uuid
 
 class PasswordManager:
-    def __init__(self):
-        self.file = "passwd.txt"
+    def __init__(self, file: str):
+        self.file = file
         self.salt_size = 32
         self.num_iterations = 100
 
