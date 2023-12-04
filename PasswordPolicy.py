@@ -12,6 +12,7 @@ class PasswordPolicy:
         character_condition = bool(re.match(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)', password))
         match_username_condition = password != username
         weak_condition = not self.is_weak(password)
+        print(weak_condition)
         common_condition = not self.is_common_format(password)
         
         if length_condition:

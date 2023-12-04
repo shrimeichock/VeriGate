@@ -1,6 +1,7 @@
 import unittest
 import os
 from PasswordManager import PasswordManager
+from PasswordPolicy import PasswordPolicy
 
 class TestAccessControlPolicy(unittest.TestCase):
 
@@ -45,6 +46,10 @@ class TestAccessControlPolicy(unittest.TestCase):
         self.assertEqual(manager.retreive_record(user2), line2)
     
         os.remove(filename) # delete file after test runs
+    
+    def test_is_weak(self):
+        policy = PasswordPolicy()
+        self.assertTrue(policy.is_weak("Password1"))
 
 if __name__ == '__main__':
     unittest.main()
